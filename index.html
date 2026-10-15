@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- ============================================================
+       EDIT ME #1 — page metadata (shows in browser tabs / search)
+       ============================================================ -->
+  <title>Tai Robinett</title>
+  <meta name="description" content="One-line summary of who you are and what you do.">
+  <meta name="author" content="Tai Robinett">
+
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="page">
+
+    <!-- ============================================================
+         EDIT ME #2 — header: photo, name, headline, bio, links.
+         Swap assets/profile.svg for your own photo (square image,
+         400x400 or larger) and update the src + alt below.
+         ============================================================ -->
+    <header class="intro">
+      <img class="avatar" src="assets/profile.svg" alt="Portrait of Tai Robinett" width="140" height="140">
+
+      <div class="intro-text">
+        <h1>Tai Robinett</h1>
+        <p class="headline">YOUR TITLE &middot; YOUR FIELD</p>
+        <p class="bio">
+          YOUR BIO — two or three sentences on what you work on, what you care
+          about, and what you are looking for. Keep it concrete: the specific
+          problems you solve say more than adjectives do.
+        </p>
+
+        <!-- Delete any link you don't want; add more the same way. -->
+        <ul class="links">
+          <li><a href="https://github.com/tairobinett">GitHub</a></li>
+          <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">LinkedIn</a></li>
+          <li><a href="mailto:YOU@EXAMPLE.COM">Email</a></li>
+          <!-- Résumé link: add assets/resume.pdf, or delete this line. -->
+          <li><a href="assets/resume.pdf">R&eacute;sum&eacute;</a></li>
+        </ul>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         EDIT ME #3 — projects. Copy one <li class="project"> block
+         per project. Drop the <ul class="tags"> line if unused.
+         ============================================================ -->
+    <section class="section" aria-labelledby="projects-heading">
+      <h2 id="projects-heading">Projects</h2>
+
+      <ul class="projects">
+        <li class="project">
+          <h3><a href="https://github.com/tairobinett/PROJECT-ONE">Project One</a></h3>
+          <p>What it does, in a sentence or two, and why it was worth building.</p>
+          <ul class="tags"><li>Python</li><li>PostgreSQL</li></ul>
+        </li>
+
+        <li class="project">
+          <h3><a href="https://github.com/tairobinett/PROJECT-TWO">Project Two</a></h3>
+          <p>What it does, in a sentence or two, and why it was worth building.</p>
+          <ul class="tags"><li>TypeScript</li><li>AWS</li></ul>
+        </li>
+
+        <li class="project">
+          <h3><a href="https://github.com/tairobinett/PROJECT-THREE">Project Three</a></h3>
+          <p>What it does, in a sentence or two, and why it was worth building.</p>
+          <ul class="tags"><li>Go</li><li>Docker</li></ul>
+        </li>
+      </ul>
+    </section>
+
+    <!-- ============================================================
+         EDIT ME #4 — optional experience list. Delete this whole
+         <section> to keep the page to projects only.
+         ============================================================ -->
+    <section class="section" aria-labelledby="experience-heading">
+      <h2 id="experience-heading">Experience</h2>
+
+      <ul class="timeline">
+        <li>
+          <p class="when">2023 &ndash; Present</p>
+          <div>
+            <h3>Job Title</h3>
+            <p class="where">Company Name</p>
+            <p>One sentence on scope and impact.</p>
+          </div>
+        </li>
+        <li>
+          <p class="when">2020 &ndash; 2023</p>
+          <div>
+            <h3>Previous Title</h3>
+            <p class="where">Previous Company</p>
+            <p>One sentence on scope and impact.</p>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; <span id="year">2026</span> Tai Robinett</p>
+    </footer>
+  </main>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
