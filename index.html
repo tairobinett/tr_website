@@ -4,12 +4,14 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <!-- ============================================================
-       EDIT ME #1 — page metadata (shows in browser tabs / search)
-       ============================================================ -->
-  <title>Tai Robinett</title>
-  <meta name="description" content="One-line summary of who you are and what you do.">
+  <title>Tai Robinett &mdash; Software Developer</title>
+  <meta name="description" content="Software developer and recent Computer Science graduate. I build web applications and games, with a focus on procedural generation.">
   <meta name="author" content="Tai Robinett">
+
+  <meta property="og:title" content="Tai Robinett — Software Developer">
+  <meta property="og:description" content="Software developer and recent Computer Science graduate. I build web applications and games, with a focus on procedural generation.">
+  <meta property="og:type" content="profile">
+  <meta property="og:image" content="https://tairobinett.github.io/tr_website/assets/headshot-square.jpg">
 
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="styles.css">
@@ -17,87 +19,183 @@
 <body>
   <main class="page">
 
-    <!-- ============================================================
-         EDIT ME #2 — header: photo, name, headline, bio, links.
-         Swap assets/profile.svg for your own photo (square image,
-         400x400 or larger) and update the src + alt below.
-         ============================================================ -->
     <header class="intro">
-      <img class="avatar" src="assets/profile.svg" alt="Portrait of Tai Robinett" width="140" height="140">
+      <img class="avatar" src="assets/headshot-square.jpg"
+           alt="Tai Robinett" width="140" height="140">
 
       <div class="intro-text">
         <h1>Tai Robinett</h1>
-        <p class="headline">YOUR TITLE &middot; YOUR FIELD</p>
+        <!-- Drop the city below if you'd rather not list a location. -->
+        <p class="headline">Software Developer &middot; Chapel Hill, NC</p>
+
         <p class="bio">
-          YOUR BIO — two or three sentences on what you work on, what you care
-          about, and what you are looking for. Keep it concrete: the specific
-          problems you solve say more than adjectives do.
+          I&rsquo;m a software developer and recent Computer Science graduate from
+          UNC&nbsp;Asheville. I build web applications and games, with a particular
+          interest in procedural generation &mdash; the algorithms that let a program
+          invent a dungeon, a battlemap, or a level layout that nobody drew by hand.
+          Most recently I built level-assembly systems and gameplay features for a
+          third-person shooter in Unreal&nbsp;Engine&nbsp;5.
         </p>
 
-        <!-- Delete any link you don't want; add more the same way. -->
+        <!-- Delete this paragraph once you are no longer job-seeking. A location
+             preference can go here too, e.g. "remote or in the Triangle area". -->
+        <p class="availability">
+          <span class="dot" aria-hidden="true"></span>
+          Open to full-time software engineering roles.
+        </p>
+
         <ul class="links">
           <li><a href="https://github.com/tairobinett">GitHub</a></li>
-          <li><a href="https://www.linkedin.com/in/YOUR-LINKEDIN-HANDLE">LinkedIn</a></li>
-          <li><a href="mailto:YOU@EXAMPLE.COM">Email</a></li>
-          <!-- Résumé link: add assets/resume.pdf, or delete this line. -->
+          <li><a href="https://www.linkedin.com/in/tai-robinett-6a36a13a2">LinkedIn</a></li>
+          <li><a href="mailto:tairobinett@gmail.com">Email</a></li>
           <li><a href="assets/resume.pdf">R&eacute;sum&eacute;</a></li>
         </ul>
       </div>
     </header>
 
     <!-- ============================================================
-         EDIT ME #3 — projects. Copy one <li class="project"> block
-         per project. Drop the <ul class="tags"> line if unused.
+         PROJECTS
+
+         Every screenshot below is a placeholder. Each one's alt text
+         describes the shot that belongs in that slot. To add a real
+         screenshot, drop the file in assets/ and change that image's
+         src. Keep the alt text, and delete any slot you don't fill.
          ============================================================ -->
     <section class="section" aria-labelledby="projects-heading">
       <h2 id="projects-heading">Projects</h2>
 
-      <ul class="projects">
-        <li class="project">
-          <h3><a href="https://github.com/tairobinett/PROJECT-ONE">Project One</a></h3>
-          <p>What it does, in a sentence or two, and why it was worth building.</p>
-          <ul class="tags"><li>Python</li><li>PostgreSQL</li></ul>
-        </li>
+      <article class="project">
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="A generated dungeon battlemap: stone rooms joined by corridors on a square grid.">
+            <figcaption>A generated dungeon</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="The PandaMaps control panel, with inputs for map size, terrain type, and room density.">
+            <figcaption>Generation controls</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="A generated wilderness map, with forest and water terrain shaped by OpenSimplex noise.">
+            <figcaption>Wilderness terrain</figcaption>
+          </figure>
+        </div>
 
-        <li class="project">
-          <h3><a href="https://github.com/tairobinett/PROJECT-TWO">Project Two</a></h3>
-          <p>What it does, in a sentence or two, and why it was worth building.</p>
-          <ul class="tags"><li>TypeScript</li><li>AWS</li></ul>
-        </li>
+        <div class="project-body">
+          <h3>PandaMaps <span class="project-sub">TTRPG Map Generator</span></h3>
+          <p>
+            A web app that procedurally generates battlemaps for Dungeons &amp; Dragons
+            and other tabletop RPGs. You set the parameters; it builds a map nobody has
+            seen before, using OpenSimplex noise for terrain and rectangle accretion for
+            room layout. React and TypeScript front end, Python back end, containerized
+            with Docker.
+          </p>
+          <ul class="tags">
+            <li>React</li><li>TypeScript</li><li>Python</li><li>Docker</li><li>Google Cloud</li>
+          </ul>
+          <p class="project-links">
+            <!-- Once the deployment is live, add href="https://..." to the tag below
+                 and change its text to "Live demo". Without an href it renders as
+                 muted, non-clickable text rather than a dead link. -->
+            <a class="pending">Live demo &mdash; coming soon</a>
+            <a href="https://github.com/tairobinett/rpg-map-generator">Source on GitHub &rarr;</a>
+          </p>
+        </div>
+      </article>
 
-        <li class="project">
-          <h3><a href="https://github.com/tairobinett/PROJECT-THREE">Project Three</a></h3>
-          <p>What it does, in a sentence or two, and why it was worth building.</p>
-          <ul class="tags"><li>Go</li><li>Docker</li></ul>
-        </li>
-      </ul>
+      <article class="project">
+        <div class="shots">
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="Platycrawl's dungeon view: the player character in a procedurally generated room, with unexplored tiles darkened.">
+            <figcaption>Exploring a floor</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="A combat encounter in Platycrawl, with the message log and player stats beside the map.">
+            <figcaption>Combat and message log</figcaption>
+          </figure>
+          <figure class="shot">
+            <img src="assets/shot-placeholder.svg" loading="lazy"
+                 alt="The Platycrawl title screen.">
+            <figcaption>Title screen</figcaption>
+          </figure>
+        </div>
+
+        <div class="project-body">
+          <h3>Platycrawl <span class="project-sub">Roguelike</span></h3>
+          <p>
+            A dungeon-crawler roguelike I built with my brother. Every floor is generated
+            at run time &mdash; Perlin noise and randomized room accretion lay out the
+            level, so no two runs repeat. Written in Python with NumPy, OpenSimplex, and
+            TCOD, and packaged for Windows with PyInstaller.
+          </p>
+          <ul class="tags">
+            <li>Python</li><li>NumPy</li><li>TCOD</li><li>PyInstaller</li>
+          </ul>
+          <p class="project-links">
+            <a href="https://ballardrobinett.itch.io/platycrawl">Play on itch.io &rarr;</a>
+          </p>
+        </div>
+      </article>
     </section>
 
-    <!-- ============================================================
-         EDIT ME #4 — optional experience list. Delete this whole
-         <section> to keep the page to projects only.
-         ============================================================ -->
     <section class="section" aria-labelledby="experience-heading">
       <h2 id="experience-heading">Experience</h2>
 
       <ul class="timeline">
         <li>
-          <p class="when">2023 &ndash; Present</p>
+          <p class="when">Jan &ndash; Jul 2025</p>
           <div>
-            <h3>Job Title</h3>
-            <p class="where">Company Name</p>
-            <p>One sentence on scope and impact.</p>
+            <h3>Game Developer</h3>
+            <p class="where">University of North Carolina at Asheville</p>
+            <p>
+              Built gameplay features and user interface for a third-person shooter in
+              Unreal Engine 5 using C++ and Blueprints, including the procedural system
+              that assembles prefabricated room modules into level layouts, and
+              controller support across multiple input devices.
+            </p>
           </div>
         </li>
         <li>
-          <p class="when">2020 &ndash; 2023</p>
+          <p class="when">May &ndash; Aug 2022</p>
           <div>
-            <h3>Previous Title</h3>
-            <p class="where">Previous Company</p>
-            <p>One sentence on scope and impact.</p>
+            <h3>Software Developer Intern</h3>
+            <p class="where">Croquet Corporation</p>
+            <p>
+              Developed features for Croquet Microverse, a JavaScript framework for
+              building multiplayer 3D worlds on the web with Three.js, and shipped a 3D
+              racing game with a cross-functional, test-driven team.
+            </p>
           </div>
         </li>
       </ul>
+    </section>
+
+    <section class="section" aria-labelledby="skills-heading">
+      <h2 id="skills-heading">Skills</h2>
+
+      <dl class="skills">
+        <dt>Languages</dt>
+        <dd>Python, TypeScript, JavaScript, C++, Bash, SQL</dd>
+
+        <dt>Web</dt>
+        <dd>React, Next.js, Node.js, Flask, FastAPI, Material UI, CSS</dd>
+
+        <dt>Tools &amp; platforms</dt>
+        <dd>Docker, Git, PostgreSQL, Google Cloud Platform, Unreal Engine 5</dd>
+      </dl>
+    </section>
+
+    <section class="section" aria-labelledby="education-heading">
+      <h2 id="education-heading">Education</h2>
+
+      <p class="education">
+        <strong>B.S. Computer Science</strong>, concentration in Information Systems<br>
+        University of North Carolina at Asheville &middot; May 2026
+      </p>
     </section>
 
     <footer class="footer">

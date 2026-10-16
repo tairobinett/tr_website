@@ -1,7 +1,7 @@
 /* ----------------------------------------------------------------
-   Theme tokens. Light palette is the base; the dark block below
-   only swaps colors, so there is one place to change each value.
-   Accent color: change --accent in both blocks to re-skin the site.
+   Theme tokens. The light palette is the base; the dark block below
+   only swaps colors, so each value has exactly one place to change.
+   To re-skin the site, change --accent in both blocks.
    ---------------------------------------------------------------- */
 :root {
   --bg:        #fbfbfa;
@@ -11,8 +11,9 @@
   --muted:     #6b6a66;
   --accent:    #2f6f5e;
   --accent-sf: #e8f1ee;
+  --ok:        #2f8f5b;
 
-  --max-width: 46rem;
+  --max-width: 48rem;
   --radius: 10px;
   --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
           Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
@@ -27,6 +28,7 @@
     --muted:     #9a9a94;
     --accent:    #6fc3a8;
     --accent-sf: #1b2a26;
+    --ok:        #5fbf86;
   }
 }
 
@@ -104,8 +106,33 @@ h1 {
 .bio {
   margin: 0;
   color: var(--muted);
-  max-width: 34rem;
+  max-width: 36rem;
 }
+
+/* Availability badge --------------------------------------------- */
+
+.availability {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 1rem 0 0;
+  padding: 0.3rem 0.85rem 0.3rem 0.7rem;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--ok);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--ok) 18%, transparent);
+}
+
+/* Links ----------------------------------------------------------- */
 
 .links {
   display: flex;
@@ -150,36 +177,59 @@ h1 {
 
 /* --- Projects --------------------------------------------------- */
 
-.projects {
-  list-style: none;
-  margin: 1.5rem 0 0;
-  padding: 0;
-  display: grid;
-  gap: 1rem;
-  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
-}
-
 .project {
-  padding: 1.1rem 1.25rem;
+  margin-top: 1.5rem;
+  padding: 1.25rem;
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: var(--radius);
-  transition: border-color 0.15s ease, transform 0.15s ease;
 }
 
-.project:hover {
-  border-color: var(--accent);
-  transform: translateY(-2px);
+/* Screenshot strip: three across, scrolling horizontally if narrow. */
+.shots {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
 }
 
-.project h3 { font-size: 1.05rem; }
-.project h3 a { text-decoration: none; }
-.project h3 a:hover { text-decoration: underline; }
+.shot { margin: 0; }
 
-.project p {
-  margin: 0.5rem 0 0;
+.shot img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  background: var(--bg);
+}
+
+.shot figcaption {
+  margin-top: 0.4rem;
+  color: var(--muted);
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.project-body h3 {
+  font-size: 1.2rem;
+  letter-spacing: -0.01em;
+}
+
+.project-sub {
+  margin-left: 0.5rem;
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.project-body > p {
+  margin: 0.6rem 0 0;
   color: var(--muted);
   font-size: 0.95rem;
+  max-width: 40rem;
 }
 
 .tags {
@@ -201,6 +251,23 @@ h1 {
   letter-spacing: 0.02em;
 }
 
+.project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  margin: 1rem 0 0;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+/* An <a> with no href: a placeholder for a link that isn't live yet. */
+.project-links a.pending {
+  color: var(--muted);
+  font-weight: 400;
+  font-style: italic;
+  cursor: default;
+}
+
 /* --- Experience ------------------------------------------------- */
 
 .timeline {
@@ -217,7 +284,7 @@ h1 {
   border-bottom: 1px solid var(--border);
 }
 
-.timeline > li:last-child { border-bottom: 0; }
+.timeline > li:last-child { border-bottom: 0; padding-bottom: 0; }
 
 .when {
   margin: 0;
@@ -241,6 +308,35 @@ h1 {
   font-size: 0.95rem;
 }
 
+/* --- Skills ----------------------------------------------------- */
+
+.skills {
+  display: grid;
+  grid-template-columns: 9rem 1fr;
+  gap: 0.5rem 1.5rem;
+  margin: 1.5rem 0 0;
+}
+
+.skills dt {
+  color: var(--muted);
+  font-size: 0.85rem;
+  padding-top: 0.05rem;
+}
+
+.skills dd {
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* --- Education -------------------------------------------------- */
+
+.education {
+  margin: 1.5rem 0 0;
+  font-size: 0.95rem;
+}
+
+.education strong { font-weight: 600; }
+
 /* --- Footer ----------------------------------------------------- */
 
 .footer {
@@ -254,7 +350,7 @@ h1 {
 
 /* --- Small screens ---------------------------------------------- */
 
-@media (max-width: 34rem) {
+@media (max-width: 36rem) {
   .page { padding-top: 3rem; }
 
   .intro {
@@ -264,12 +360,30 @@ h1 {
 
   .avatar { width: 110px; height: 110px; }
 
-  .timeline > li {
+  /* Screenshots become a swipeable row instead of three cramped columns.
+     This scrolls inside the card; it must not be wider than the card, or
+     the whole page picks up a horizontal scrollbar. */
+  .shots {
+    grid-template-columns: none;
+    grid-auto-flow: column;
+    grid-auto-columns: 80%;
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 0.25rem;
+  }
+
+  .shot { scroll-snap-align: start; }
+
+  .timeline > li,
+  .skills {
     grid-template-columns: 1fr;
     gap: 0.4rem;
   }
 
   .when { padding-top: 0; }
+
+  .skills dt { padding-top: 0.5rem; }
 }
 
 @media (prefers-reduced-motion: reduce) {

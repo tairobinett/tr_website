@@ -6,29 +6,51 @@ moving to another host later means copying the directory.
 
 ## Files
 
-| Path                  | What it is                                            |
-| --------------------- | ----------------------------------------------------- |
-| `index.html`          | All page content. Four `EDIT ME` blocks mark what to fill in. |
-| `styles.css`          | All styling. Theme colors are CSS variables at the top. |
-| `assets/profile.svg`  | Placeholder portrait — replace with your photo.       |
-| `assets/favicon.svg`  | Browser-tab icon.                                     |
-| `.nojekyll`           | Tells GitHub Pages to serve the files as-is, without running Jekyll. |
+| Path                         | What it is                                           |
+| ---------------------------- | ---------------------------------------------------- |
+| `index.html`                 | All page content and copy.                           |
+| `styles.css`                 | All styling. Theme colors are CSS variables at the top. |
+| `assets/headshot-square.jpg` | 800×800 crop of the headshot, used on the page.      |
+| `assets/headshot.jpg`        | Original 3024×2710 photo, kept as the crop source. Safe to delete. |
+| `assets/resume.pdf`          | Linked from the header.                              |
+| `assets/shot-placeholder.svg`| Stand-in for project screenshots. Follows light/dark. |
+| `assets/favicon.svg`         | Browser-tab icon.                                    |
+| `.nojekyll`                  | Tells GitHub Pages to serve the files as-is, without running Jekyll. |
 
-## Editing
+## Adding project screenshots
 
-Everything personal lives in `index.html`, inside four commented blocks:
+Every `<img>` in a `.shots` block currently points at
+`assets/shot-placeholder.svg`, and its `alt` text describes the screenshot that
+belongs in that slot. To fill one in:
 
-1. **Metadata** — title and description used by browsers and search engines.
-2. **Header** — photo, name, headline, bio, and the GitHub / LinkedIn / email links.
-3. **Projects** — one `<li class="project">` per project; copy the block to add more.
-4. **Experience** — optional; delete the whole `<section>` to drop it.
+1. Put the image in `assets/` (e.g. `assets/pandamaps-dungeon.png`).
+2. Change that one `<img>`'s `src` to the new path.
+3. Leave the `alt` text alone — it is already written for the real image.
 
-To use your own photo, add it to `assets/` (square, 400×400 or larger) and point
-the `<img class="avatar">` `src` at it, e.g. `assets/profile.jpg`. Update the
-`alt` text too.
+Delete any `<figure class="shot">` you do not fill. The row is a three-column
+grid on desktop and a swipeable strip on mobile; it works with one, two, or
+three images.
 
-To change the accent color, edit `--accent` and `--accent-sf` in `styles.css` —
-once in `:root` for light mode and once in the `prefers-color-scheme: dark` block.
+Screenshots look best at a 16:10 ratio (they are cropped to that), around
+1280×800. Keep them under ~300 KB each.
+
+## Other edits
+
+- **The PandaMaps demo link** is an `<a>` with no `href`, which renders as muted,
+  non-clickable text rather than a dead link. When the deployment is live, add
+  `href="https://..."` and change the text to "Live demo".
+- **The availability badge** in the header is one `<p class="availability">`.
+  Delete it once you are no longer job-seeking.
+- **Accent color:** edit `--accent` and `--accent-sf` in `styles.css` — once in
+  `:root` for light mode and once in the `prefers-color-scheme: dark` block.
+- **The `og:image` meta tag** has an absolute URL pointing at the GitHub Pages
+  domain. Update it if the site moves.
+
+## Re-cropping the headshot
+
+The square crop was made with Pillow: open `assets/headshot.jpg`, apply EXIF
+rotation, take the largest centered square, resize to 800×800, and save as JPEG
+at quality 85. Any image editor does the same job.
 
 ## Previewing locally
 
@@ -54,5 +76,5 @@ Every later push to `main` redeploys automatically.
 - **Custom domain, still on Pages:** add a `CNAME` file containing the bare
   domain (e.g. `example.com`), point DNS at GitHub, then set the domain under
   Settings → Pages and enable *Enforce HTTPS*.
-- **Another host:** upload `index.html`, `styles.css`, and `assets/`. All paths
-  are relative, so the site works from any directory without changes.
+- **Another host:** upload `index.html`, `styles.css`, and `assets/`. Every path
+  in the page is relative, so the site works from any directory without changes.
